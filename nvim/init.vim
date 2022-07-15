@@ -9,6 +9,9 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/tagbar'
   Plug 'joshdick/onedark.vim'
+  Plug 'Raimondi/delimitMate'
+  Plug 'antonk52/vim-browserslist'
+	Plug 'KabbAmine/vCoolor.vim'
 call plug#end()
 
 " Style
@@ -28,6 +31,9 @@ colorscheme onedark
 "     \ '#458588', '#b16286', '#689d6a', '#a89984',
 "     \ '#928374', '#fb4934', '#b8bb26', '#fabd2f',
 "     \ '#83a598', '#d3869b', '#8ec07c', '#ebdbb2',
+"
+" Ruler
+set cc=80
 
 " Basic config
 syntax on
@@ -39,11 +45,10 @@ set smartcase
 set incsearch
 set hlsearch
 
-        :%s/old/new/gc
 set number
 set scrolloff=8
 
-# Tab width
+" Tab width
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -52,33 +57,33 @@ set smartindent
 set smarttab
 set expandtab
 
-# May be useful in future
+" May be useful in future
 " au BufNewFile,BufRead *.py
 "     \ set tabstop=4 |
 "     \ set softtabstop=4 |
 "     \ set shiftwidth=4 |
 
-# Window split config
+" Window split config
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 
-# Nerd tree
+" Nerd tree
 nnoremap <C-t> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 set wildignore+=*.DS_Store,*.min.*
 autocmd BufWinEnter * silent NERDTreeMirror.
 
-# Emmet
+" Emmet
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
 \  },
 \}
 
-# ALE
+" ALE
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
@@ -87,10 +92,11 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_disable_lsp = 1
 
-# TabBar
+" TabBar
 nmap <F8> :TagbarToggle<CR>
 
-# Coc Config
+
+" Coc Config
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 " " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
